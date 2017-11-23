@@ -1,0 +1,30 @@
+---
+resources:
+- name: account-registration
+  type: git
+  source:
+    uri: https://github.com/sandhyasujathasoman/registration-login-spring-xml-maven-jsp-mysql.git   #<----- REPLACE ME
+    branch: master
+
+- name: deploy-account-registration
+  type: cf
+  source:
+    api: api.system.cumuluslabs.io        #<----- REPLACE ME
+    username: {{cf-user}}
+    password: {{cf-password}}
+    organization: ssandhya-pal    #<----- REPLACE ME
+    space: sandbox        #<----- REPLACE ME
+    skip_cert_check: true
+
+jobs:
+- name: build
+  public: true
+  plan:
+  - get: account-registration
+  - task: package
+    file: account-registration/ci/tasks/package.yml
+  - put: deploy-account-registration
+    params:
+      manifest: account-registration/manifest.yml
+      path: package-output/account.war
+

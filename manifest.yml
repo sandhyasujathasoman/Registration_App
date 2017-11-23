@@ -1,0 +1,10 @@
+applications:
+- name: account-registration
+  instances: 1
+  memory: 1024M
+  disk_quota: 1024M
+  random-route: true
+  stack: cflinuxfs2
+  path: target/account-1.0-SNAPSHOT.war
+  services:
+    - account-mysql
