@@ -3,7 +3,7 @@ resources:
 - name: account-registration
   type: git
   source:
-    uri: https://github.com/sandhyasujathasoman/registration-login-spring-xml-maven-jsp-mysql.git   #<----- REPLACE ME
+    uri: https://github.com/sandhyasujathasoman/Registration_App.git   #<----- REPLACE ME
     branch: master
 
 - name: deploy-account-registration
@@ -17,10 +17,11 @@ resources:
     skip_cert_check: true
 
 jobs:
-- name: build
+- name: deploy
   public: true
   plan:
   - get: account-registration
+    trigger: true
   - task: package
     file: account-registration/ci/tasks/package.yml
   - put: deploy-account-registration

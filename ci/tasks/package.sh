@@ -14,7 +14,7 @@ if [ $war_count -gt 1 ]; then
   exit 1
 fi
 
-find account-registration/target -type f -name *.war -exec cp "{}" package-output/account-registration.war \;
+find account-registration/target -type f -name *.war -exec cp "{}" package-output/account.war \;
 
 echo "Done packaging"
 exit 0
