@@ -29,3 +29,14 @@ jobs:
       manifest: account-registration/manifest.yml
       path: package-output/account.war
 
+- name: smoke_test
+  public: true
+  plan:
+  - get: account-registration
+    trigger: true
+    passed: [deploy]
+  - task: smoke_test
+    file: account-registration/ci/tasks/smoke-test.yml
+    params:
+      ATTENDEE_SERVICE_URL: https://account-registration-internetted-bimillennium.apps.cumuluslabs.io #<---- REPLACE ME
+
