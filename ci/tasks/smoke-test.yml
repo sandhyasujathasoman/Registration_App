@@ -8,7 +8,7 @@ image_resource:
     tag: "latest"
 
 params:
-  ACCOUNT_REGISTRATION_URL:
+  ACCOUNT_REGISTRATION_URL: https://account-registration-internetted-bimillennium.apps.cumuluslabs.io
 
 inputs:
 - name: account-registration
