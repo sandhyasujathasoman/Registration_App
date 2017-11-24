@@ -38,5 +38,5 @@ jobs:
   - task: smoke_test
     file: account-registration/ci/tasks/smoke-test.yml
     params:
-      ACCOUNT_REGISTRATION_URL: https://account-registration-internetted-bimillennium.apps.cumuluslabs.io #<---- REPLACE ME
+      ACCOUNT_REGISTRATION_URL: https://account-registration-internetted-bimillennium.apps.cumuluslabs.io/login #<---- REPLACE ME
 

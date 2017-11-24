@@ -6,7 +6,7 @@ describe "attendee service"
     content_type=`echo $http_result | cut -d, -f2`
 
     it "serves a 200 response"
-      assert equal $http_code []
+      assert equal $http_code 200
     end
   end
 end
